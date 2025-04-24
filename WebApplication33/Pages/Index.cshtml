@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Шифрование текста";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <label>Введите текст:</label><br />
+    <textarea asp-for="InputText" rows="4" cols="50"></textarea><br />
+
+    <label>Алгоритм:</label>
+    <select asp-for="Algorithm">
+        <option value="AES">AES</option>
+        <option value="RSA">RSA</option>
+    </select><br />
+
+    <label>Ключ шифрования (для AES):</label>
+    <input asp-for="EncryptionKey" /><br /><br />
+
+    <button type="submit" asp-page-handler="Encrypt">Зашифровать</button>
+</form>
+
+@if (Model.EncryptedText != null)
+{
+    <p><strong>Зашифрованный текст:</strong> @Model.EncryptedText</p>
+    <p><strong>Дешифрованный текст:</strong> @Model.DecryptedText</p>
+}
