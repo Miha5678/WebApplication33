@@ -14,9 +14,11 @@
     <select asp-for="Algorithm">
         <option value="AES">AES</option>
         <option value="RSA">RSA</option>
+        <option value="BouncyCastle">Bouncy Castle RSA</option>
+        <option value="Libsodium">Libsodium SecretBox</option>
     </select><br />
 
-    <label>Ключ шифрования (для AES):</label>
+    <label>Ключ шифрования (если требуется):</label>
     <input asp-for="EncryptionKey" /><br /><br />
 
     <button type="submit" asp-page-handler="Encrypt">Зашифровать</button>
